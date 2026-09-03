@@ -1,0 +1,10 @@
+*.pth
+__pycache__/
+
+*.zip
+.env
+retinaface_gt_v1.1/
+notes_to_self.txt
+temp.txt
+yolo_data_format.txt
+*.pth
