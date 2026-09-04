@@ -8,6 +8,16 @@ import json
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
+
+
+def check_success_state(success, fail_message, pass_message):
+    if not success:
+        print(fail_message)
+        exit(1)
+    else:
+        print(pass_message)
+
+
 def extract_data(zip_file_path: str, output_dir):
     with zipfile.ZipFile(zip_file_path, "r") as zip_ref:
         zip_ref.extractall(output_dir)
@@ -341,13 +351,6 @@ def main():
     check_success_state(success, "Error while writing keys", "keys written successfully")
 
 
-def check_success_state(success, fail_message, pass_message):
-    if not success:
-        print(fail_message)
-        exit(1)
-    else:
-        print(pass_message)
-    
 
 if __name__ == "__main__":
     main()
