@@ -29,6 +29,7 @@ def move_data(src_dir: str, dst_dir: str, keys: list, split: str):
         return True
     except Exception as e:
         print(e)
+        print("_____")
         return False
 
     
