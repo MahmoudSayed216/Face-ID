@@ -166,8 +166,8 @@ def process_data(data: dict, dimensions_file_path):
         full_df["y"] = full_df["y"]/full_df["im_h"]
         full_df["h"] = full_df["h"]/full_df["im_h"]
         for i in range(1, 6):
-            full_df[f"l{i}x"] = (full_df[f"l{i}v"] == True)*(full_df[f"l{i}x"] / full_df["im_w"]) + (full_df[f"l{i}v"] == False)*(-1)
-            full_df[f"l{i}y"] = (full_df[f"l{i}v"] == True)*(full_df[f"l{i}y"] / full_df["im_h"]) + (full_df[f"l{i}v"] == False)*(-1)
+            full_df[f"l{i}x"] = (full_df[f"l{i}v"] == True)*(full_df[f"l{i}x"] / full_df["im_w"]) + (~full_df[f"l{i}v"])*(0)
+            full_df[f"l{i}y"] = (full_df[f"l{i}v"] == True)*(full_df[f"l{i}y"] / full_df["im_h"]) + (~full_df[f"l{i}v"] == False)*(0)
             # full_df[f"l{i}y"] = full_df[f"l{i}y"] / full_df["im_h"]
 
         print("full df head:")

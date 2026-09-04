@@ -1,4 +1,5 @@
 *.pth
+*.pt
 __pycache__/
 
 *.zip
@@ -8,3 +9,4 @@ notes_to_self.txt
 temp.txt
 yolo_data_format.txt
 *.pth
+.vscode/
