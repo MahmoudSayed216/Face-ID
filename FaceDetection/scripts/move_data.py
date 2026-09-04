@@ -31,16 +31,9 @@ def move_data(src_dir: str, dst_dir: str, keys: list, split: str):
             img_path = os.path.join(src_dir, key)
             shutil.copy(img_path, dst_dir)
 
-            # print("File Exists: ",os.path.isfile(img_path))
-            
-            break
-
-
-
         return True
+    
     except Exception as e:
-        print(e)
-        print("_____")
         return False
 
     
