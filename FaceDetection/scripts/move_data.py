@@ -23,9 +23,9 @@ def load_keys_json(path, filename):
         return False, None
 
 def move_data(src_dir: str, dst_dir: str, keys: list, split: str):
-    print("SOF")
     try:
         dst_dir = os.path.join(dst_dir, split)
+        print(f"moving {split} to {dst_dir}")
         print(dst_dir)
         for key in keys:
             img_path = os.path.join(src_dir, key)
