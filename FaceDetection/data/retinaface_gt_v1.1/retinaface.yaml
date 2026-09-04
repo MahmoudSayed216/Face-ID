@@ -1,5 +1,5 @@
 #Directories
-path: retinaface
+path: /home/mahmoud-sayed/Desktop/Code/Python/Computer Vision/Face Identification/FaceDetection/data/retinaface_gt_v1.1/retinaface
 train: images/train
 val: images/val
 test: images/test

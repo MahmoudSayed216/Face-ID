@@ -28,7 +28,7 @@ def extract_data(zip_file_path: str, output_dir):
 
 
 def create_data_env_in_yolo_format(base_dir):
-    DATA_DIR_PATH            = os.path.join(base_dir, "retinaface")
+    DATA_DIR_PATH            = os.path.join(base_dir, "datasets","retinaface")
     #__
     IMAGES_SUBDIR_PATH       = os.path.join(DATA_DIR_PATH, "images")
     LABELS_SUBDIR_PATH       = os.path.join(DATA_DIR_PATH, "labels")
@@ -57,7 +57,7 @@ def create_data_env_in_yolo_format(base_dir):
         for path in paths:
             os.makedirs(name= path, exist_ok= False)
     except:
-        return False
+        return False, None, None
 
 
     return True, IMAGES_SUBDIR_PATH, LABELS_SUBDIR_PATH
