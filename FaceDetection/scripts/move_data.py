@@ -14,6 +14,7 @@ def load_keys_json(path, filename):
     try:
         with open(json_file_path, "r") as f:
             my_list = json.load(f)
+        return True, my_list
     except Exception as e:
         print(e)
         return False, None
