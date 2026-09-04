@@ -28,7 +28,7 @@ def extract_data(zip_file_path: str, output_dir):
 
 
 def create_data_env_in_yolo_format(base_dir):
-    DATA_DIR_PATH            = os.path.join(base_dir, "datasets","retinaface")
+    DATA_DIR_PATH            = os.path.join(base_dir, "retinaface")
     #__
     IMAGES_SUBDIR_PATH       = os.path.join(DATA_DIR_PATH, "images")
     LABELS_SUBDIR_PATH       = os.path.join(DATA_DIR_PATH, "labels")
@@ -247,7 +247,8 @@ def write_data(split: dict, path):
             str_label = str_label[:-1]
                 # print("LABEL: ", str_label)
             key:str = key[:-4]
-            key = key.replace("/", "_")
+            # key = key.replace("/", "_")
+            key = key[key.find("/")+1:]
             txt_file_path = os.path.join(path, f"{key}.txt")
 
             file = open(txt_file_path, mode="w+")
