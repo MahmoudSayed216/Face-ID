@@ -13,7 +13,8 @@ def load_keys_json(path, filename):
     try:
         with open("data.json", "r") as f:
             my_list = json.load(f)
-    except:
+    except Exception as e:
+        print(e)
         return False, None
 
 def move_data(src_dir: str, dst_dir: str, keys: list, split: str):
