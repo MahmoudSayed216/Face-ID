@@ -10,3 +10,4 @@ temp.txt
 yolo_data_format.txt
 *.pth
 .vscode/
+FaceDetection/data/raw_labels/retinaface_gt_v1.1/
