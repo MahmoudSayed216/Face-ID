@@ -55,9 +55,9 @@ def main():
 
     success = move_data(SRC_DIR, DST_DIR, train_keys, "train")
     check_success_state(success, "Error while moving data", "data moved successfully")
-    success = move_data(SRC_DIR, DST_DIR, train_keys, "test")
+    success = move_data(SRC_DIR, DST_DIR, test_keys, "test")
     check_success_state(success, "Error while moving data", "data moved successfully")
-    success = move_data(SRC_DIR, DST_DIR, train_keys, "val")
+    success = move_data(SRC_DIR, DST_DIR, valid_keys, "val")
     check_success_state(success, "Error while moving data", "data moved successfully")
 
 
