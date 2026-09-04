@@ -251,6 +251,24 @@ def write_data(split: dict, path):
         return False
 
 
+def write_keys(data, path, file_name):
+
+    try:
+        keys = list(data.keys())
+
+        OUTPUT_KEYS_FILE_PATH = os.path.join(path, file_name+".json")
+        with open(OUTPUT_KEYS_FILE_PATH, "w") as f:
+            json.dump(keys, f, indent=4)
+
+        return True
+    except:
+        return False
+    
+
+
+
+
+
 def main():
     args = sys.argv
     extract = True
@@ -314,6 +332,13 @@ def main():
     check_success_state(success, "Error while writing data", "data written successfully")
     success = write_data(test, TEST_LAEBLS_PATH)
     check_success_state(success, "Error while writing data", "data written successfully")
+
+    success = write_keys(train, BASE_DIR, "train_keys")
+    check_success_state(success, "Error while writing keys", "keys written successfully")
+    success = write_keys(valid, BASE_DIR, "valid_keys")
+    check_success_state(success, "Error while writing keys", "keys written successfully")
+    success = write_keys(test, BASE_DIR, "test_keys")
+    check_success_state(success, "Error while writing keys", "keys written successfully")
 
 
 def check_success_state(success, fail_message, pass_message):
