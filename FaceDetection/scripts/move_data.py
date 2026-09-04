@@ -10,8 +10,9 @@ def check_success_state(success, fail_message, pass_message):
     
 
 def load_keys_json(path, filename):
+    json_file_path = os.path.join(path, filename)
     try:
-        with open("data.json", "r") as f:
+        with open(json_file_path, "r") as f:
             my_list = json.load(f)
     except Exception as e:
         print(e)
