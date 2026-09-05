@@ -29,7 +29,7 @@ def main():
         imgsz=train_configs["IMAGE_SIZE"],
         batch= train_configs["BATCH_SIZE"],
         workers=train_configs["WORKERS"],
-        device=common_configs["DEVICE"],      # both T4s
+        device=common_configs["DEVICE"],
         project=common_configs["PROJECT"],
         name=train_configs["NAME"],
         exist_ok=False,
@@ -46,16 +46,7 @@ def main():
         optimizer = train_configs["OPTIMIZER"]
 
     )
-    # MULTI_SCALE: 0.0 # DEFAULT
-    # WARMUP_EPOCHS: 3 # DEFAULT
-    # MOMENTUM: 0.937 # DEFAULT
-    # LR0: 0.01
-    # LRF: 0.01
-    # FREEZE: ~ # DEFAULT
-    # COS_LR: False # DEFAULT
-    # SEED: 42
-    # PRETRAINED: True # DEFAULT
-    # OPTIMIZER: "MuSGD
+
 
     print(f"FINETUNING ON CONFIGS {config} completed")
 
