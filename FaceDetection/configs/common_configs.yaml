@@ -1,0 +1,4 @@
+DATA_PATH: "/kaggle/working/Face-ID/FaceDetection/data/retinaface_gt_v1.1/retinaface.yaml"
+DEVICE: [0, 1]
+PROJECT: "face_and_landmark_detection"
+SEED: 42
