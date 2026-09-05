@@ -31,14 +31,14 @@ def main():
         workers=train_configs["WORKERS"],
         device=common_configs["DEVICE"],      # both T4s
         project=common_configs["PROJECT"],
-        name=train_configs["NAMME"],
+        name=train_configs["NAME"],
         exist_ok=False,
         ###
         multi_scale = train_configs["MULTI_SCALE"],
         warmup_epochs = train_configs["WARMUP_EPOCHS"],
         momentum = train_configs["MOMENTUM"],
         lr0 = train_configs["LR0"],
-        lrf = train_configs["LRf"],
+        lrf = train_configs["LRF"],
         freeze = train_configs["FREEZE"],
         cos_lr = train_configs["COS_LR"],
         seed = common_configs["SEED"],
