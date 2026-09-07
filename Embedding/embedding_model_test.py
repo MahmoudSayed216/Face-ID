@@ -1,9 +1,5 @@
 import torch
-import torchvision.transforms as transforms
-from PIL import Image
-from torchvision.models import resnet18
 from models import get_model
-import cv2
 import numpy as np
 
 
