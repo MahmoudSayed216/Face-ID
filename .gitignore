@@ -14,3 +14,4 @@ FaceDetection/data/raw_labels/retinaface_gt_v1.1/
 .vscode/
 
 models/Face&LandmarksDetector/*
+input/
