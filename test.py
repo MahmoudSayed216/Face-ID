@@ -1,43 +1,30 @@
-from ultralytics import YOLO
-import insightface
+import numpy as np
+from face_embedder import FaceEmbedder
 import cv2
-import matplotlib.pyplot as plt
 
+embedder = FaceEmbedder(detection_model="YOLO26NANO_BASE", embedding_model="r34")
 
-IMAGE_PATH = ["input/8.jpeg", "input/9.jpeg"]
-MODEL_PATH = "models/Face&LandmarksDetector/YOLO26NANO_BASE/best.pt"
+IMAGE1 = "/home/mahmoud-sayed/Desktop/Code/Python/Computer Vision/Face Identification/input/17.jpeg"    
+IMAGE2 = "/home/mahmoud-sayed/Desktop/Code/Python/Computer Vision/Face Identification/input/190.jpeg"
+IMAGE1 = cv2.imread(IMAGE1)
+IMAGE2 = cv2.imread(IMAGE2)
+# embeddings = embedder.embed_faces_from_desk(images_paths=[
+#     IMAGE1,
+#     IMAGE2
+#     ])
 
-model = YOLO(MODEL_PATH)
-output = model.predict(IMAGE_PATH)
-print("OUTPUT: ", output)
-plt.imshow(output[1].orig_img)
-plt.show()
-print(output[1].boxes)
+embeddings = embedder.embed_faces(
+    images=[IMAGE1, IMAGE2]
+)
 
-# x, y, w, h = output[0].boxes.xywh[0]
-# x = int(x-w/2)
-# y = int(y-h/2)
-# w = int(w)
-# h = int(h)
+sayed1 = embeddings[0][0][0]
 
-
-
-# keypoints = output[0].keypoints.xy[0]
-# kpx1, kpy1 = int(keypoints[0][0]), int(keypoints[0][1])
-# kpx2, kpy2 = int(keypoints[1][0]), int(keypoints[1][1])
-# kpx3, kpy3 = int(keypoints[2][0]), int(keypoints[2][1])
-# kpx4, kpy4 = int(keypoints[3][0]), int(keypoints[3][1])
-# kpx5, kpy5 = int(keypoints[4][0]), int(keypoints[4][1])
-
-
-# cv2.rectangle(image, (x, y), (x+w, y+h), (0, 0, 225), 5)
-# cv2.circle(image, center=(kpx1, kpy1), radius=10, thickness=10, color=(0, 125, 125))
-# cv2.circle(image, center=(kpx2, kpy2), radius=10, thickness=10, color=(0, 125, 125))
-# cv2.circle(image, center=(kpx3, kpy3), radius=10, thickness=10, color=(0, 125, 125))
-# cv2.circle(image, center=(kpx4, kpy4), radius=10, thickness=10, color=(0, 125, 125))
-# cv2.circle(image, center=(kpx5, kpy5), radius=10, thickness=10, color=(0, 125, 125))
+sayed2 = embeddings[1][1][0]
+print(sayed1)
+print(sayed2.shape)
 
 
 
-# plt.imshow(image)
-# plt.show()
+cos_sim = np.dot(sayed1, sayed2) / (np.linalg.norm(sayed1) * np.linalg.norm(sayed2))
+print("COSINE SIMILARITY = ", cos_sim)
+
